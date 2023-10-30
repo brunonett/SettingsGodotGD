@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwf3tliixh6e7"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_gbhtm"]
+[ext_resource type="PackedScene" uid="uid://bvvh1e6etni7s" path="res://Scenes/SwitchSM.tscn" id="2_exlhc"]
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("BTWFocus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gbhtm")
+BTWFocus = NodePath("VBoxContainer/Start")
+
+[node name="SwitchSM" parent="." instance=ExtResource("2_exlhc")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.424
+anchor_right = 0.525
+anchor_bottom = 0.576
+offset_left = -6.10352e-05
+offset_top = 0.399963
+offset_right = -6.10352e-05
+offset_bottom = -0.400024
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Continue")
+text = "Start"
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Options")
+text = "Continue
+"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Continue")
+focus_neighbor_bottom = NodePath("../Quit")
+text = "Opcoes"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Start")
+text = "Quit"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

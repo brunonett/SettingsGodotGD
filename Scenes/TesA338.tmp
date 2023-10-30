@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfa4aqods4gqt"]
+
+[ext_resource type="PackedScene" uid="uid://b70003n4wnvru" path="res://Light/directional_light_3d.tscn" id="1_btlcn"]
+[ext_resource type="Script" path="res://Scripts/WorldEnvironment.gd" id="1_fwvki"]
+[ext_resource type="Texture2D" uid="uid://x3xep5x4dy76" path="res://assets/prototype_textures/PNG/Orange/texture_10.png" id="1_qlu2k"]
+[ext_resource type="PackedScene" uid="uid://de75ql0deagjh" path="res://Light/spot_light_3d.tscn" id="3_u527l"]
+[ext_resource type="PackedScene" uid="uid://dkw2lmddwavev" path="res://Scenes/csg_test.tscn" id="5_ctwey"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xvvvb"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_67gyp"]
+sky_material = SubResource("ProceduralSkyMaterial_xvvvb")
+
+[sub_resource type="Environment" id="Environment_wjmey"]
+background_mode = 2
+sky = SubResource("Sky_67gyp")
+tonemap_mode = 1
+ssr_max_steps = 512
+ssr_fade_in = 1.59403e-05
+ssr_fade_out = 1e-05
+ssao_radius = 0.3
+ssao_intensity = 0.01
+ssao_power = 1200.0
+ssao_horizon = 0.2
+ssao_sharpness = 0.0
+ssil_radius = 1.65
+ssil_intensity = 1.28
+ssil_sharpness = 0.0
+ssil_normal_rejection = 0.0
+sdfgi_bounce_feedback = 0.0
+sdfgi_cascades = 1
+sdfgi_min_cell_size = 1.0
+sdfgi_cascade0_distance = 64.0
+sdfgi_max_distance = 128.0
+sdfgi_y_scale = 2
+sdfgi_energy = 0.1
+glow_levels/3 = 16.0
+glow_levels/4 = 16.0
+glow_levels/5 = 0.0
+glow_normalized = true
+glow_strength = 0.59
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.02
+volumetric_fog_emission = Color(0.541176, 0.541176, 0.541176, 1)
+volumetric_fog_anisotropy = -0.7
+volumetric_fog_length = 25.0
+volumetric_fog_sky_affect = 0.0
+volumetric_fog_temporal_reprojection_enabled = false
+volumetric_fog_temporal_reprojection_amount = 0.598
+adjustment_brightness = 0.87
+adjustment_contrast = 1.32
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_amq2b"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_62ard"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rnwc"]
+albedo_texture = ExtResource("1_qlu2k")
+metallic = 0.2
+metallic_specular = 0.0
+roughness = 0.0
+normal_scale = -0.2
+rim = 0.13
+rim_tint = 0.44
+clearcoat_roughness = 0.25
+anisotropy = -0.61
+subsurf_scatter_strength = 0.38
+subsurf_scatter_skin_mode = true
+refraction_scale = 1.0
+uv1_triplanar = true
+uv1_world_triplanar = true
+grow_amount = -0.375
+
+[node name="TestMecanics" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wjmey")
+script = ExtResource("1_fwvki")
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("1_btlcn")]
+light_angular_distance = 0.0
+light_bake_mode = 1
+shadow_bias = 0.01
+shadow_blur = 2.0
+directional_shadow_mode = 0
+directional_shadow_max_distance = 50.0
+directional_shadow_pancake_size = 3.8
+script = null
+
+[node name="SpotLight3D" parent="." instance=ExtResource("3_u527l")]
+transform = Transform3D(1, 0, 0, 0, 0.417502, 0.908676, 0, -0.908676, 0.417502, 4.37241, 4.23033, -10.5334)
+light_bake_mode = 1
+script = null
+
+[node name="SpotLight3D2" parent="." instance=ExtResource("3_u527l")]
+transform = Transform3D(0.981175, 0.0806286, 0.175485, -0.0866315, -0.62836, 0.773084, 0.1726, -0.773733, -0.609546, 4.37241, 4.23033, -4.6395)
+light_bake_mode = 1
+script = null
+
+[node name="World" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00136e-05, 0)
+
+[node name="Plane" type="StaticBody3D" parent="World"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Plane"]
+shape = SubResource("ConcavePolygonShape3D_amq2b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Plane"]
+gi_mode = 0
+mesh = SubResource("PlaneMesh_62ard")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8rnwc")
+
+[node name="CSG_TEST" parent="." instance=ExtResource("5_ctwey")]

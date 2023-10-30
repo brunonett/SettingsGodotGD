@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://livq7fmn7qu2"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_rcljt"]
+[ext_resource type="Script" path="res://Player/CameraPlayer.gd" id="2_axifi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hcyrr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dt557"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r7vwj"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_ey4ut"]
+
+[node name="S_Player" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+collision_layer = 2
+script = ExtResource("1_rcljt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_hcyrr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_dt557")
+
+[node name="frente" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.345285, 0, 0, 0, 0.391577, 0, 0, 0, 0.571504, 0, 0, 0.558544)
+mesh = SubResource("BoxMesh_r7vwj")
+
+[node name="CameraPlayer" type="Marker3D" parent="."]
+script = ExtResource("2_axifi")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPlayer"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.791957, 0)
+shape = SubResource("SeparationRayShape3D_ey4ut")
+spring_length = 4.0
+
+[node name="Camerar" type="Camera3D" parent="CameraPlayer/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73934e-07, 0, 4.27731)

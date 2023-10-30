@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhltaq0fcwrnt"]
+
+[ext_resource type="Script" path="res://Scripts/MenuPause.gd" id="1_qgdbq"]
+[ext_resource type="PackedScene" uid="uid://u6xk2a3ceoka" path="res://Scenes/Option.tscn" id="2_s7uhj"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_cn86d"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_eytoh"]
+events = [SubResource("InputEventAction_cn86d")]
+
+[node name="MenuPause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_qgdbq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.5
+offset_right = 100.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Option" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Return" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_eytoh")
+text = "Return"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Option" parent="." instance=ExtResource("2_s7uhj")]
+visible = false
+
+[connection signal="pressed" from="Control/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

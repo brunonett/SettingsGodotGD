@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://livq7fmn7qu2"]
+
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_wfm7c"]
+[ext_resource type="PackedScene" uid="uid://nhmamvggupmw" path="res://Scenes/Player/CanPlay.tscn" id="2_56f5u"]
+[ext_resource type="PackedScene" uid="uid://bhltaq0fcwrnt" path="res://Scenes/MenuPause.tscn" id="3_y4tou"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hcyrr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dt557"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r7vwj"]
+
+[node name="S_Player" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+collision_layer = 2
+floor_constant_speed = true
+script = ExtResource("1_wfm7c")
+
+[node name="CenterPlayer" type="Marker3D" parent="Player"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751508, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_hcyrr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_dt557")
+
+[node name="frente" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.345285, 0, 0, 0, 0.391577, 0, 0, 0, 0.571504, 0, 0, 0.558544)
+mesh = SubResource("BoxMesh_r7vwj")
+
+[node name="CanPlay" parent="." instance=ExtResource("2_56f5u")]
+
+[node name="MenuPause" parent="." instance=ExtResource("3_y4tou")]
+
+[editable path="CanPlay"]

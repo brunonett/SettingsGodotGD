@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvvh1e6etni7s"]
+
+[ext_resource type="Script" path="res://Scripts/SwitchSM.gd" id="1_5hmov"]
+
+[node name="SwitchSM" type="Node"]
+script = ExtResource("1_5hmov")

@@ -1,0 +1,171 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkw2lmddwavev"]
+
+[ext_resource type="Texture2D" uid="uid://bgluduw74m5dp" path="res://assets/prototype_textures/Textures/Rokstextures.jpg" id="1_7yyhj"]
+[ext_resource type="Texture2D" uid="uid://bt8utelkha4w4" path="res://icon.svg" id="2_b31pc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irof4"]
+albedo_texture = ExtResource("1_7yyhj")
+metallic_specular = 0.0
+roughness = 0.0
+anisotropy = 1.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ginjb"]
+albedo_texture = ExtResource("1_7yyhj")
+roughness = 0.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+grow_amount = -7.923
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykm0p"]
+albedo_texture = ExtResource("2_b31pc")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+
+[node name="CSG_TEST" type="Node"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+process_mode = 4
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+calculate_tangents = false
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.59962, -9.03467, -7.96259)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.01323, -8.20787, -9.34526)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -2.10565, -7.43035, -10.421)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -2.08091, -6.48361, -11.8969)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -3.90712, -5.40256, -17.8477)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -3.90712, -4.10775, -20.2428)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.34039, -3.05321, -22.8609)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1.933, -1.85032, -22.8609)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 4.24798, -0.761979, -25.0475)
+lod_bias = 10.258
+gi_mode = 0
+calculate_tangents = false
+use_collision = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_irof4")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.749784, -0.78019, -11.6747)
+lod_bias = 10.258
+gi_mode = 0
+snap = 0.00404
+calculate_tangents = false
+use_collision = true
+material = SubResource("StandardMaterial3D_ginjb")
+
+[node name="CSGCylinder" type="CSGCylinder3D" parent="CSGCombiner3D"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1.5023, 5.28586, -15.5439)
+lod_bias = 10.258
+gi_mode = 0
+operation = 2
+calculate_tangents = false
+radius = 0.602215
+height = 1.371
+smooth_faces = false
+material = SubResource("StandardMaterial3D_ykm0p")

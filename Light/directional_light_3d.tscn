@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70003n4wnvru"]
+
+[ext_resource type="Script" path="res://Scripts/DirectionalLight3D.gd" id="1_agbyt"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D"]
+transform = Transform3D(0.109854, -0.993821, 0.015858, -0.858452, -0.0868248, 0.505492, -0.500991, -0.0691436, -0.862686, 0, 14.4732, -5.261)
+light_color = Color(0.403922, 0.403922, 0.403922, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_angular_distance = 1.0
+shadow_enabled = true
+script = ExtResource("1_agbyt")

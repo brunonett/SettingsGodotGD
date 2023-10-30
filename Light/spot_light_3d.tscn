@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://de75ql0deagjh"]
+
+[ext_resource type="Script" path="res://Scripts/SpotLight3D.gd" id="1_ucjf7"]
+
+[node name="SpotLight3D" type="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 0.417502, 0.908676, 0, -0.908676, 0.417502, 4.37241, 4.23033, -7.67654)
+light_energy = 8.289
+light_indirect_energy = 2.112
+light_volumetric_fog_energy = 1.618
+shadow_enabled = true
+spot_range = 7.351
+spot_angle = 75.58
+script = ExtResource("1_ucjf7")

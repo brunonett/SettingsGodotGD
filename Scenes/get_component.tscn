@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dngdkn36ypreg"]
+
+[sub_resource type="GDScript" id="GDScript_lmxtw"]
+script/source = "extends Node3D
+
+var light = DirectionalLight3D
+
+
+func _ready():
+	pass
+	
+func _process(_delta):
+	if SPlayer.process_mode == Node.PROCESS_MODE_INHERIT:
+		
+		light = get_tree().get_nodes_in_group(\"light\") 
+		print(light)
+	light = DirectionalLight3D.PROCESS_MODE_DISABLED"
+
+[node name="GetComponent" type="Node3D"]
+process_mode = 4
+script = SubResource("GDScript_lmxtw")
