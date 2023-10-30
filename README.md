@@ -1,1 +1,1 @@
-# Basic menu Settings for godot
+# Basic menu of graphics  Settings  for godot GD
